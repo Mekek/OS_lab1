@@ -101,8 +101,7 @@ int main() {
 
                 cout << "PID " << pid << " finished. real=" << real
                      << "s user=" << user << "s sys=" << sys << "s\n";
-                cout << "voluntary ctxt s
-                witches: " << usage.ru_nvcsw
+                cout << "voluntary ctxt s witches: " << usage.ru_nvcsw
                      << ", involuntary: " << usage.ru_nivcsw << "\n";
 
                 if (WIFEXITED(status)) {
