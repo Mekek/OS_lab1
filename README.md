@@ -61,87 +61,8 @@ g++ -std=c++17 -O0 -g -o mysh mysh.cpp
 ./mysh
 ```
 
-![alt text](image.png)
-
 
 
  # Часть 2
 
- ### Компиляция и запуск
-
-
-### 1. stress_ng_by_iterations.cpp
-🔧 Компиляция
-
-Без оптимизаций (как требуют в ЛР):
-```
-g++ -std=c++17 -O0 -pthread stress_ng_by_iterations.cpp -o stress_ng_by_iterations
-```
-
-С оптимизациями (для сравнения):
-```
-g++ -std=c++17 -O3 -march=native -pthread stress_ng_by_iterations.cpp -o stress_ng_by_iterations_opt
-```
-
-### Примеры запуска
-
-Формат:
-```bash
-./stress_ng_by_iterations <iterations_icache> <iterations_cache> <cache_size> <iterations_branch> <threads>
-```
-
-1) Базовый запуск, без оптимизаций:
-(Прогоняем 100k итераций icache, 10k проходов по кэшу, размер кэша 4096, 100k ветвлений, 4 потока)
-```bash
-./stress_ng_by_iterations 100000 10000 4096 100000 4
-```
-
-2) С оптимизациями (-O3):
-```bash
-./stress_ng_by_iterations_opt 100000 10000 4096 100000 4
-```
-
-3) Увеличение нагрузки для полного использования всех ядер (например, 8):
-```bash
-./stress_ng_by_iterations 500000 50000 16384 500000 8
-```
-
-### 2. stress_ng_by_seconds.cpp
-🔧 Компиляция
-
-Без оптимизаций:
-```
-g++ -std=c++17 -O0 -pthread stress_ng_by_seconds.cpp -o stress_ng_by_seconds
-```
-
-С оптимизациями:
-```
-g++ -std=c++17 -O3 -march=native -pthread stress_ng_by_seconds.cpp -o stress_ng_by_seconds_opt
-```
-
-### Примеры запуска
-
-Формат:
-```
-./stress_ng_by_seconds --mode <icache|flushcache|cache|branch> --iterations <N> [--timeout <sec>]
-```
-
-1) Прогрев icache, 1M итераций, без таймаута:
-```
-./stress_ng_by_seconds --mode icache --iterations 1000000
-```
-
-2) Flushcache, 500 итераций, таймаут 10 секунд:
-```
-./stress_ng_by_seconds --mode flushcache --iterations 500 --timeout 10
-```
-
-3) Cache нагрузка, 10k итераций, с оптимизациями (-O3):
-```
-./stress_ng_by_seconds_opt --mode cache --iterations 10000
-```
-
-4) Branch нагрузка, 50M итераций:
-```
-./stress_ng_by_seconds --mode branch --iterations 50000000
-```
+ Отчёт по проделанной работе
